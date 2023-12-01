@@ -6,5 +6,5 @@
     "esModuleInterop": true
   },
   "types": ["mocha"],
-  "include": ["spec/**/*.spec.ts"]
+  "include": ["specs/*.spec.ts"]
 }
