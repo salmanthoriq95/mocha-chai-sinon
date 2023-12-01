@@ -1,2 +1,27 @@
 ###
-GET http://localhost:3000/users
+GET http://localhost:3000/users/?userId=1
+
+###
+POST http://localhost:3000/users/
+Content-Type: application/json
+
+{
+  "name": "salman"
+}
+
+###
+PUT http://localhost:3000/users/
+Content-Type: application/json
+
+{
+  "userId": 4,
+  "name": "salman thoriq"
+}
+
+###
+DELETE http://localhost:3000/users/
+Content-Type: application/json
+
+{
+  "userId": 4
+}

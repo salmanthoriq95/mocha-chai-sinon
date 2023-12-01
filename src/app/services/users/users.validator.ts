@@ -1,17 +1,54 @@
 import Joi from 'joi';
-// import HttpExpection from '../../errors/HttpExpection';
+import HttpExpection from '../../errors/HttpException';
 
 class UsersValidator {
-  async get(payload: any) {
+  get(payload: any) {
+    const schema = Joi.object({
+      userId: Joi.number().optional(),
+    });
+    const { error } = schema.validate(payload);
+    if (error) {
+      throw new HttpExpection(400, {
+        message: error.message,
+      });
+    }
     return payload;
   }
-  async post(payload: any) {
+  post(payload: any) {
+    const schema = Joi.object({
+      name: Joi.string().required(),
+    });
+    const { error } = schema.validate(payload);
+    if (error) {
+      throw new HttpExpection(400, {
+        message: error.message,
+      });
+    }
     return payload;
   }
-  async put(payload: any) {
+  put(payload: any) {
+    const schema = Joi.object({
+      userId: Joi.number().required(),
+      name: Joi.string().required(),
+    });
+    const { error } = schema.validate(payload);
+    if (error) {
+      throw new HttpExpection(400, {
+        message: error.message,
+      });
+    }
     return payload;
   }
-  async del(payload: any) {
+  del(payload: any) {
+    const schema = Joi.object({
+      userId: Joi.number().required(),
+    });
+    const { error } = schema.validate(payload);
+    if (error) {
+      throw new HttpExpection(400, {
+        message: error.message,
+      });
+    }
     return payload;
   }
 }

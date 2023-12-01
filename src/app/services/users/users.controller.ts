@@ -5,8 +5,8 @@ import userService from './users.service';
 class UsersController {
   async get(req: Request, res: Response, next: NextFunction) {
     try {
-      const validReq = userValidator.get(req.body);
-      const serviceResult = userService.get(validReq);
+      const validReq = userValidator.get(req.query);
+      const serviceResult = await userService.get(validReq);
       return res.send({
         success: true,
         data: serviceResult,
@@ -18,7 +18,7 @@ class UsersController {
   async post(req: Request, res: Response, next: NextFunction) {
     try {
       const validReq = userValidator.post(req.body);
-      const serviceResult = userService.post(validReq);
+      const serviceResult = await userService.post(validReq);
       return res.send({
         success: true,
         data: serviceResult,
@@ -30,7 +30,7 @@ class UsersController {
   async put(req: Request, res: Response, next: NextFunction) {
     try {
       const validReq = userValidator.put(req.body);
-      const serviceResult = userService.put(validReq);
+      const serviceResult = await userService.put(validReq);
       return res.send({
         success: true,
         data: serviceResult,
@@ -42,7 +42,7 @@ class UsersController {
   async del(req: Request, res: Response, next: NextFunction) {
     try {
       const validReq = userValidator.del(req.body);
-      const serviceResult = userService.del(validReq);
+      const serviceResult = await userService.del(validReq);
       return res.send({
         success: true,
         data: serviceResult,
